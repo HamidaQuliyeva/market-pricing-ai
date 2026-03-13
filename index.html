@@ -5,75 +5,144 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bravo Pricing AI Assistant</title>
 
-  <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=en_US" defer></script>
-
   <style>
+    /* Ümumi Bədən Tərzi */
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f0f2f5;
       margin: 0;
-      padding: 40px 20px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
+    /* Mərkəzi Konteyner Dizaynı */
     .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 40px 32px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      background-color: #ffffff;
+      max-width: 600px;
+      width: 90%;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      border-top: 6px solid #2A8341; /* Bravo Yaşıl Rəngi */
       text-align: center;
     }
 
+    /* Başlıq və Mətnlər */
     h1 {
+      color: #111827;
+      font-size: 28px;
       margin-top: 0;
-      color: #1f2937;
-      font-size: 34px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
+      font-weight: 700;
     }
 
-    p {
+    p.subtitle {
       color: #4b5563;
-      font-size: 17px;
-      margin-bottom: 28px;
-    }
-
-    #searchWidgetTrigger {
-      background: #2563eb;
-      color: white;
-      border: none;
-      padding: 14px 24px;
-      border-radius: 10px;
       font-size: 16px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    /* Axtarış / Trigger Düyməsi Dizaynı */
+    .search-btn-container {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    /* Google sənədlərinə uyğun <input> istifadə edirik amma düymə kimi bəzəyirik */
+    #searchWidgetTrigger {
+      width: 80%;
+      padding: 16px 20px;
+      padding-left: 45px;
+      font-size: 16px;
+      color: #374151;
+      background-color: #f9fafb;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
       cursor: pointer;
+      outline: none;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
     }
 
-    #searchWidgetTrigger:hover {
-      background: #1d4ed8;
+    #searchWidgetTrigger:hover, #searchWidgetTrigger:focus {
+      border-color: #2A8341; /* Yaşıl Border hover */
+      background-color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(42, 131, 65, 0.1);
+    }
+    
+    /* Axtarış İkonu (Input-un içinə qoyulan estetik görüntü üçün) */
+    .search-icon {
+      position: absolute;
+      left: 12%; 
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9ca3af;
+      pointer-events: none;
     }
 
+    /* Alt qısa qeyd */
     .note {
-      margin-top: 20px;
-      color: #6b7280;
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #fdfdfd;
+      border: 1px solid #f3f4f6;
+      border-radius: 8px;
       font-size: 14px;
+      color: #6b7280;
+      text-align: left;
+    }
+
+    .note strong {
+      color: #374151;
+    }
+    
+    .note ul {
+      margin-top: 8px;
+      margin-bottom: 0;
+      padding-left: 20px;
     }
   </style>
 </head>
 <body>
+
   <div class="container">
     <h1>Bravo Pricing AI Assistant</h1>
-    <p>Pricing analizi ilə bağlı sual vermək üçün düyməni basın</p>
+    <p class="subtitle">Bazar qiymətləri, promolar və riskli məhsullarla bağlı dərhal analiz almaq üçün axtarışa başlayın.</p>
 
-    <button id="searchWidgetTrigger">AI Assistanti Aç</button>
+    <!-- UI Düyməsi (Google sənədindəki kimi Input olaraq işlədilib, ancaq düymə təəssüratı verir) -->
+    <div class="search-btn-container">
+      <!-- Sadəcə estetik baxımdan magnifying glass ikonu əlavə etmişik -->
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+      <input type="text" placeholder="Assistant ilə danışmağa başla..." id="searchWidgetTrigger" readonly />
+    </div>
 
+    <!-- Məlumat Xarakterli Qeyd Paneli -->
     <div class="note">
-      Assistant overpriced, underpriced, promo təzyiqi və strategiya suallarına cavab verir.
+      <strong>💡 Soruşa biləcəyiniz nümunələr:</strong>
+      <ul>
+        <li>Zərərə satılan ("Underpriced") məhsullar hansılardır?</li>
+        <li>Bazar payı və promo təzyiqi necədir?</li>
+        <li>Gecikmə riski olan məhsulları listələ.</li>
+      </ul>
     </div>
   </div>
 
+  <!-- GOOGLE WIDGET KODLARI BURADA YERLƏŞİR -->
+  <!-- 1. Google tərəfindən verilən Script -->
+  <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=en_US"></script>
+
+  <!-- 2. Widget-in öz Konfiqurasiyası (Gözlə görünmür) -->
   <gen-search-widget
     configId="86985459-0a4b-4fa7-ad08-9d99be96c661"
     triggerId="searchWidgetTrigger">
   </gen-search-widget>
+
 </body>
 </html>
