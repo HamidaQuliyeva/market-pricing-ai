@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bravo Pricing AI Assistant</title>
+
+  <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=en_US"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #1f2937;
+      text-align: center;
+      font-size: 32px;
+    }
+
+    p {
+      text-align: center;
+      color: #4b5563;
+      margin-bottom: 24px;
+      font-size: 16px;
+    }
+
+    .input-box {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    #searchWidgetTrigger {
+      width: 100%;
+      max-width: 520px;
+      padding: 14px 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    #searchWidgetTrigger:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .hint {
+      margin-top: 22px;
+      font-size: 14px;
+      color: #6b7280;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .examples {
+      margin-top: 16px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+
+    .examples h3 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      color: #111827;
+    }
+
+    .examples ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #374151;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bravo Pricing AI Assistant</h1>
+    <p>Pricing analizi üçün sualınızı yazın</p>
+
+    <gen-search-widget
+      configId="86985459-0a4b-4fa7-ad08-9d99be96c661"
+      triggerId="searchWidgetTrigger">
+    </gen-search-widget>
+
+    <div class="input-box">
+      <input
+        type="text"
+        id="searchWidgetTrigger"
+        placeholder="Məsələn: Underpriced məhsullar hansılardır?" />
+    </div>
+
+    <div class="examples">
+      <h3>Nümunə suallar</h3>
+      <ul>
+        <li>Overpriced məhsullar hansılardır?</li>
+        <li>Underpriced məhsullarda 10 qəpik artım etsək illik əlavə gəlir nə qədər olar?</li>
+        <li>Promo təzyiqi hansı kateqoriyalarda daha yüksəkdir?</li>
+        <li>Yuyucu maye kateqoriyası üçün hansı strategiya daha uyğundur?</li>
+      </ul>
+    </div>
+
+    <div class="hint">
+      Bu assistant pricing datasetini analiz edir, riskləri göstərir və strategiya tövsiyələri verir.
+    </div>
+  </div>
+</body>
+</html>
