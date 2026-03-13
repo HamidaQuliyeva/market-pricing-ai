@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bravo Pricing AI Assistant</title>
 
-  <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=en_US"></script>
+  <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=en_US" defer></script>
 
   <style>
     body {
@@ -64,16 +64,16 @@
     <h1>Bravo Pricing AI Assistant</h1>
     <p>Pricing analizi ilə bağlı sual vermək üçün düyməni basın</p>
 
-    <gen-search-widget
-      configId="86985459-0a4b-4fa7-ad08-9d99be96c661"
-      triggerId="searchWidgetTrigger">
-    </gen-search-widget>
-
     <button id="searchWidgetTrigger">AI Assistanti Aç</button>
 
     <div class="note">
       Assistant overpriced, underpriced, promo təzyiqi və strategiya suallarına cavab verir.
     </div>
   </div>
+
+  <gen-search-widget
+    configId="86985459-0a4b-4fa7-ad08-9d99be96c661"
+    triggerId="searchWidgetTrigger">
+  </gen-search-widget>
 </body>
 </html>
